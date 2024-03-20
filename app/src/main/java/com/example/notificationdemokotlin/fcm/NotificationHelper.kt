@@ -1,16 +1,17 @@
-package com.example.notificationdemokotlin
+package com.example.notificationdemokotlin.fcm
 
 import android.annotation.SuppressLint
-import android.app.NotificationManager
 import android.app.PendingIntent
+import android.content.ContentResolver
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.media.RingtoneManager
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-
+import com.example.notificationdemokotlin.MainActivity
+import com.example.notificationdemokotlin.R
 
 
 class NotificationHelper {
@@ -44,7 +45,9 @@ class NotificationHelper {
                 .setContentText(body)
                 .setContentIntent(pendingIntent)
                 .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-                .setSound(defaultUri)
+                .setSound( Uri.parse(
+                    ContentResolver.SCHEME_ANDROID_RESOURCE
+                            + "://" + context.packageName + "/raw/q"))
                 .setPriority(NotificationCompat.PRIORITY_MAX)
                 .setLargeIcon(bitmap)
                 .setStyle(NotificationCompat.BigPictureStyle().bigPicture(bitmap))
@@ -53,6 +56,17 @@ class NotificationHelper {
             val notificationManager = NotificationManagerCompat.from(context)
             val notificationId = (System.currentTimeMillis() / 4).toInt()
             notificationManager.notify(notificationId, mBuilder.build())
+
+            try {
+                val alarmSound = Uri.parse(
+                    ContentResolver.SCHEME_ANDROID_RESOURCE
+                            + "://" + context.packageName + "/raw/q"
+                )
+                val r = RingtoneManager.getRingtone(context, alarmSound)
+                r.play()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
     }
 
@@ -79,6 +93,17 @@ class NotificationHelper {
             val notificationManager = NotificationManagerCompat.from(context)
             val notificationId = (System.currentTimeMillis() / 4).toInt()
             notificationManager.notify(notificationId, mBuilder.build())
+
+            try {
+                val alarmSound = Uri.parse(
+                    ContentResolver.SCHEME_ANDROID_RESOURCE
+                            + "://" + context.packageName + "/raw/q"
+                )
+                val r = RingtoneManager.getRingtone(context, alarmSound)
+                r.play()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
     }
 

@@ -1,4 +1,4 @@
-package com.example.notificationdemokotlin
+package com.example.notificationdemokotlin.fcm
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
