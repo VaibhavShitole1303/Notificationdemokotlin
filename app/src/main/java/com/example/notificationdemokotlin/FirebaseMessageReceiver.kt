@@ -20,7 +20,7 @@ class FirebaseMessageReceiver: FirebaseMessagingService(){
     }
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         super.onMessageReceived(remoteMessage)
-        Log.d("Notification", "onMessageReceivedCalled")
+        Log.d("Notification", remoteMessage.toString())
         mNotificationHelper = NotificationHelper()
         if (remoteMessage.notification != null) {
             if((remoteMessage.notification!!.imageUrl !=null) && (remoteMessage.notification!!.imageUrl.toString() !="")){
