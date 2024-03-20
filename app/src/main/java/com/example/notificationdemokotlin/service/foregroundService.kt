@@ -47,7 +47,7 @@ class ForegroundService: Service() {
             .setColor(Color.MAGENTA)
             .setContentIntent(pendingIntent)// on click of notification what should happen
 
-            .setOnlyAlertOnce(true)// we have same  notification then it will  not alert
+            .setOnlyAlertOnce(false)// we have same  notification then it will  not alert
             .setAutoCancel(true)
             .addPerson(incomingCaller)
 //            .setStyle(

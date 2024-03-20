@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Notification demo kotlin"
 include(":app")
- 
+include(":mylibrary")

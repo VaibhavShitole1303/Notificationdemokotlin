@@ -118,7 +118,7 @@ class MainActivity : AppCompatActivity() {
                 .addAction(R.drawable.ic_launcher_foreground,"Play",null)// in short we adding button to notification
                 .addAction(R.drawable.ic_launcher_foreground,"next",null)// here we what should happen on click of notification or when we have to add something in notification
 
-                .setOnlyAlertOnce(true)// we have same  notification then it will  not alert
+                .setOnlyAlertOnce(false)// we have same  notification then it will  not alert
                 .setAutoCancel(true) // on click on notification it will cancel
                 .build()
             val manager=getSystemService(NOTIFICATION_SERVICE) as NotificationManager
@@ -190,7 +190,7 @@ class MainActivity : AppCompatActivity() {
                 .addAction(action)
                 .addAction(R.drawable.ic_launcher_foreground,"Cancel",pendingIntent)// in short we adding button to notification
 
-                .setOnlyAlertOnce(true)// we have same  notification then it will  not alert
+                .setOnlyAlertOnce(false)// we have same  notification then it will  not alert
                 .setAutoCancel(true) // on click on notification it will cancel
                 .build()
 
